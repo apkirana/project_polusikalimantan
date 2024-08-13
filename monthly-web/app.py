@@ -1,8 +1,16 @@
+import matplotlib
+matplotlib.use('Agg')  # Use the 'Agg' backend for non-GUI rendering
+
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from flask import Flask, render_template, send_from_directory
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import accuracy_score, classification_report
+from sklearn.impute import SimpleImputer  # Import SimpleImputer for missing values
 
 app = Flask(__name__)
 
@@ -16,6 +24,10 @@ data_file_path = 'data/naivebayespolution.csv'
 data = pd.read_csv(data_file_path)
 data['date'] = pd.to_datetime(data['date'], format='%m/%d/%y')
 data['month'] = data['date'].dt.strftime('%Y-%m')
+
+# Handle missing values by imputing with the mean
+imputer = SimpleImputer(strategy='mean')
+data['pm 2.5'] = imputer.fit_transform(data[['pm 2.5']])
 
 # Define a function to label pollution levels based on AQI
 def label_aqi(pm25):
