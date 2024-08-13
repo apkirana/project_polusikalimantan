@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PM2.5 Monthly Analysis - {{ station_name }}</title>
+    <title>PM2.5 Analysis - {{ station_name }} ({{ period.capitalize() }})</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,13 +30,34 @@
         table, th, td {
             border: 1px solid #ddd;
             padding: 8px;
+            text-align: center;
         }
         th {
             background-color: #f4f4f4;
-            text-align: center;
         }
-        td {
-            text-align: center;
+        .good {
+            background-color: #009966;
+            color: white;
+        }
+        .moderate {
+            background-color: #ffde33;
+            color: black;
+        }
+        .unhealthy-for-sensitive-groups {
+            background-color: #ff9933;
+            color: black;
+        }
+        .unhealthy {
+            background-color: #cc0033;
+            color: white;
+        }
+        .very-unhealthy {
+            background-color: #660099;
+            color: white;
+        }
+        .hazardous {
+            background-color: #7e0023;
+            color: white;
         }
         a {
             text-decoration: none;
@@ -48,7 +69,7 @@
     </style>
 </head>
 <body>
-    <h1>PM2.5 Monthly Analysis for {{ station_name }}</h1>
+    <h1>PM2.5 Analysis for {{ station_name }} ({{ period.capitalize() }})</h1>
 
     <div class="image-container">
         <img src="{{ url_for('send_image', filename=image) }}" alt="{{ image }}">
@@ -56,13 +77,43 @@
 
     <table>
         <tr>
-            <th>Month</th>
+            <th>{{ period.capitalize() }}</th>
             <th>Average PM2.5</th>
+            <th>Pollution Level</th>
         </tr>
         {% for row in data %}
-        <tr>
-            <td>{{ row.month }}</td>
-            <td>{{ row.pm25 }}</td>
+        <tr class="
+            {% if row.pm25 <= 50 %}
+                good
+            {% elif row.pm25 <= 100 %}
+                moderate
+            {% elif row.pm25 <= 150 %}
+                unhealthy-for-sensitive-groups
+            {% elif row.pm25 <= 200 %}
+                unhealthy
+            {% elif row.pm25 <= 300 %}
+                very-unhealthy
+            {% else %}
+                hazardous
+            {% endif %}
+        ">
+            <td>{{ row.period }}</td>
+            <td>{{ "%.3f" | format(row.pm25) }}</td>
+            <td>
+                {% if row.pm25 <= 50 %}
+                    Good
+                {% elif row.pm25 <= 100 %}
+                    Moderate
+                {% elif row.pm25 <= 150 %}
+                    Unhealthy for Sensitive Groups
+                {% elif row.pm25 <= 200 %}
+                    Unhealthy
+                {% elif row.pm25 <= 300 %}
+                    Very Unhealthy
+                {% else %}
+                    Hazardous
+                {% endif %}
+            </td>
         </tr>
         {% endfor %}
     </table>

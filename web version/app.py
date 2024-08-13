@@ -24,6 +24,7 @@ data_file_path = 'data/naivebayespolution.csv'
 data = pd.read_csv(data_file_path)
 data['date'] = pd.to_datetime(data['date'], format='%m/%d/%y')
 data['month'] = data['date'].dt.strftime('%Y-%m')
+data['year'] = data['date'].dt.strftime('%Y')
 
 # Handle missing values by imputing with the mean
 imputer = SimpleImputer(strategy='mean')
@@ -73,11 +74,8 @@ def index():
     # Group by station and month to get the average PM2.5 for each station in each month
     monthly_avg_pm25 = data.groupby(['stasiun', 'month'])['pm 2.5'].mean().reset_index()
 
-    # Plotting the average PM2.5 for each station over time
-    stations = monthly_avg_pm25['stasiun'].unique()
-
-    # Generate and save plots
-    for station in stations:
+    # Generate and save monthly plots
+    for station in monthly_avg_pm25['stasiun'].unique():
         station_data = monthly_avg_pm25[monthly_avg_pm25['stasiun'] == station]
 
         plt.figure(figsize=(10, 6))
@@ -94,23 +92,76 @@ def index():
         plt.savefig(os.path.join(IMAGE_FOLDER, plot_filename))
         plt.close()
 
-    # Pass the list of generated images to the template
-    images = [f'{station}_monthly_avg_pm25.png' for station in stations]
-    return render_template('index.html', images=images, accuracy=accuracy, classification_report=classification_report_text)
+    # Group by station and year to get the average PM2.5 for each station in each year
+    yearly_avg_pm25 = data.groupby(['stasiun', 'year'])['pm 2.5'].mean().reset_index()
 
-@app.route('/station/<station>')
-def station_detail(station):
-    # Filter the data for the specific station
-    station_data = data[data['stasiun'] == station]
-    avg_pm25 = station_data.groupby('month')['pm 2.5'].mean().reset_index()
+    # Generate and save yearly plots (bar plots and trend lines)
+    for station in yearly_avg_pm25['stasiun'].unique():
+        station_data = yearly_avg_pm25[yearly_avg_pm25['stasiun'] == station]
+
+        # Bar plot
+        plt.figure(figsize=(10, 6))
+        sns.barplot(x='year', y='pm 2.5', data=station_data, palette='Blues')
+
+        plt.title(f'Average PM2.5 per Year for {station}')
+        plt.xlabel('Year')
+        plt.ylabel('Average PM2.5')
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+        plot_filename = f'{station}_yearly_avg_pm25.png'
+        plt.savefig(os.path.join(IMAGE_FOLDER, plot_filename))
+        plt.close()
+
+        # Trend line plot
+        plt.figure(figsize=(10, 6))
+        sns.lineplot(x='year', y='pm 2.5', data=station_data, marker='o', color='blue')
+
+        plt.title(f'PM2.5 Trend per Year for {station}')
+        plt.xlabel('Year')
+        plt.ylabel('PM2.5')
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+        plot_filename = f'{station}_yearly_trend_pm25.png'
+        plt.savefig(os.path.join(IMAGE_FOLDER, plot_filename))
+        plt.close()
+
+    # Generate a comparison line plot across all stations
+    plt.figure(figsize=(14, 8))
+    sns.lineplot(data=yearly_avg_pm25, x='year', y='pm 2.5', hue='stasiun', marker='o')
+
+    plt.title('PM2.5 Comparison Across Stations')
+    plt.xlabel('Year')
+    plt.ylabel('PM2.5')
+    plt.xticks(rotation=45)
+    plt.legend(title='Station')
+    plt.tight_layout()
+    comparison_plot_filename = 'pm25_comparison_across_stations.png'
+    plt.savefig(os.path.join(IMAGE_FOLDER, comparison_plot_filename))
+    plt.close()
+
+    # Pass the list of generated images to the template
+    monthly_images = [f'{station}_monthly_avg_pm25.png' for station in monthly_avg_pm25['stasiun'].unique()]
+    yearly_images = [f'{station}_yearly_avg_pm25.png' for station in yearly_avg_pm25['stasiun'].unique()]
+    yearly_trend_images = [f'{station}_yearly_trend_pm25.png' for station in yearly_avg_pm25['stasiun'].unique()]
+    return render_template('index.html', monthly_images=monthly_images, yearly_images=yearly_images, yearly_trend_images=yearly_trend_images, comparison_image=comparison_plot_filename, accuracy=accuracy, classification_report=classification_report_text)
+
+@app.route('/station/<station>/<period>')
+def station_detail(station, period):
+    # Filter the data for the specific station and period
+    if period == 'monthly':
+        station_data = data[data['stasiun'] == station].groupby('month')['pm 2.5'].mean().reset_index()
+        image_filename = f'{station}_monthly_avg_pm25.png'
+    elif period == 'yearly':
+        station_data = data[data['stasiun'] == station].groupby('year')['pm 2.5'].mean().reset_index()
+        image_filename = f'{station}_yearly_avg_pm25.png'
+    else:
+        station_data = data[data['stasiun'] == station].groupby('year')['pm 2.5'].mean().reset_index()
+        image_filename = f'{station}_yearly_trend_pm25.png'
 
     # Prepare the data for the table
-    data_for_table = [{'month': row['month'], 'pm25': row['pm 2.5']} for _, row in avg_pm25.iterrows()]
+    data_for_table = [{'period': row[0], 'pm25': row['pm 2.5']} for _, row in station_data.iterrows()]
 
-    # Image file for the station
-    image_filename = f'{station}_monthly_avg_pm25.png'
-
-    return render_template('station_detail.html', station_name=station, image=image_filename, data=data_for_table)
+    return render_template('station_detail.html', station_name=station, period=period, image=image_filename, data=data_for_table)
 
 @app.route('/static/images/<filename>')
 def send_image(filename):
