@@ -29,7 +29,7 @@ Where:
 	•	 P(H)  is the prior probability: the initial probability of the hypothesis  H  before seeing the data.
 	•	 P(D)  is the marginal likelihood: the total probability of the data under all possible hypotheses.
 
-Naive Bayes Assumption
+#### Naive Bayes Assumption
 
 The “naive” assumption in Naive Bayes is that the features \( X_1, X_2, \dots, X_n \) are conditionally independent given the class  C . This simplifies the computation of the likelihood:
 
@@ -37,7 +37,7 @@ The “naive” assumption in Naive Bayes is that the features \( X_1, X_2, \dot
 P(X_1, X_2, \dots, X_n | C) = P(X_1 | C) \cdot P(X_2 | C) \cdot \dots \cdot P(X_n | C)
 \]
 
-Classification Rule
+#### Classification Rule
 
 To classify a new instance, we compute the posterior probability for each class  C  and choose the class with the highest posterior probability:
 
@@ -51,7 +51,7 @@ Using Bayes’ Theorem and the independence assumption, this becomes:
 C_{\text{MAP}} = \arg\max_{C} \ P(C) \prod_{i=1}^{n} P(X_i | C)
 
 
-Types of Naive Bayes Classifiers
+#### Types of Naive Bayes Classifiers
 
 	1.	Gaussian Naive Bayes: Assumes that the continuous features follow a Gaussian (normal) distribution.
 	•	The likelihood for a feature  X_i  given class  C  is:
