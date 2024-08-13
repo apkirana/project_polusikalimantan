@@ -12,7 +12,7 @@ if not os.path.exists(IMAGE_FOLDER):
     os.makedirs(IMAGE_FOLDER)
 
 # Load and process the data
-data_file_path = 'naivebayespolution.csv'
+data_file_path = 'data/naivebayespolution.csv'
 data = pd.read_csv(data_file_path)
 data['date'] = pd.to_datetime(data['date'], format='%m/%d/%y')
 data['month'] = data['date'].dt.strftime('%Y-%m')
