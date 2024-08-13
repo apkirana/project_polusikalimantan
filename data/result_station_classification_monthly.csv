@@ -1,0 +1,55 @@
+date,stasiun,pm 2.5,Pollution Level,Pollution Level Description,Predicted Pollution Level,Predicted Pollution Level Description
+2023-09,Balikpapan Sepinggan,57.75,1,Moderate,1,Moderate
+2023-09,Balikpapan sepinggan,333.0,5,Hazardous,5,Hazardous
+2023-09,Banjar Baru Landasan Ulin,161.875,3,Unhealthy,3,Unhealthy
+2023-09,Banjarmasin Kayu Tangi,130.75,2,Unhealthy for Sensitive Groups,2,Unhealthy for Sensitive Groups
+2023-09,Kabupaten Barito Selatan Sanggu,165.25,3,Unhealthy,3,Unhealthy
+2023-09,Kabupaten Kotawaringin Timur,122.71428571428571,2,Unhealthy for Sensitive Groups,2,Unhealthy for Sensitive Groups
+2023-09,Kabupaten Sanggau Kapuas,44.833333333333336,0,Good,0,Good
+2023-09,Pontianak Tenggara Sungai Bangkong,188.75,3,Unhealthy,3,Unhealthy
+2023-09,Samarinda,108.375,2,Unhealthy for Sensitive Groups,2,Unhealthy for Sensitive Groups
+2023-10,Balikpapan Sepinggan,59.0,1,Moderate,1,Moderate
+2023-10,Balikpapan sepinggan,112.38709677419355,2,Unhealthy for Sensitive Groups,2,Unhealthy for Sensitive Groups
+2023-10,Banjar Baru Landasan Ulin,91.93442622950819,1,Moderate,1,Moderate
+2023-10,Banjarmasin Kayu Tangi,110.96551724137932,2,Unhealthy for Sensitive Groups,2,Unhealthy for Sensitive Groups
+2023-10,Kabupaten Barito Selatan Sanggu,97.70491803278688,1,Moderate,2,Unhealthy for Sensitive Groups
+2023-10,Kabupaten Kotawaringin Timur,114.08196721311475,2,Unhealthy for Sensitive Groups,2,Unhealthy for Sensitive Groups
+2023-10,Kabupaten Sanggau Kapuas,56.03333333333333,1,Moderate,1,Moderate
+2023-10,Pontianak Tenggara Sungai Bangkong,112.14035087719299,2,Unhealthy for Sensitive Groups,2,Unhealthy for Sensitive Groups
+2023-10,Samarinda,61.32786885245902,1,Moderate,1,Moderate
+2023-11,Balikpapan Sepinggan,61.607142857142854,1,Moderate,1,Moderate
+2023-11,Balikpapan sepinggan,66.46666666666667,1,Moderate,1,Moderate
+2023-11,Banjar Baru Landasan Ulin,62.092592592592595,1,Moderate,1,Moderate
+2023-11,Banjarmasin Kayu Tangi,72.20689655172414,1,Moderate,1,Moderate
+2023-11,Kabupaten Barito Selatan Sanggu,49.589285714285715,0,Good,0,Good
+2023-11,Kabupaten Kotawaringin Timur,69.5,1,Moderate,1,Moderate
+2023-11,Kabupaten Sanggau Kapuas,69.08771929824562,1,Moderate,1,Moderate
+2023-11,Pontianak Tenggara Sungai Bangkong,116.20754716981132,2,Unhealthy for Sensitive Groups,2,Unhealthy for Sensitive Groups
+2023-11,Samarinda,58.166666666666664,1,Moderate,1,Moderate
+2023-12,Balikpapan Sepinggan,60.51851851851852,1,Moderate,1,Moderate
+2023-12,Balikpapan sepinggan,74.66666666666667,1,Moderate,1,Moderate
+2023-12,Banjar Baru Landasan Ulin,90.9375,1,Moderate,1,Moderate
+2023-12,Banjarmasin Kayu Tangi,67.17647058823529,1,Moderate,1,Moderate
+2023-12,Kabupaten Barito Selatan Sanggu,75.88,1,Moderate,1,Moderate
+2023-12,Kabupaten Kotawaringin Timur,81.56603773584905,1,Moderate,1,Moderate
+2023-12,Kabupaten Sanggau Kapuas,103.15094339622641,2,Unhealthy for Sensitive Groups,2,Unhealthy for Sensitive Groups
+2023-12,Pontianak Tenggara Sungai Bangkong,90.96153846153847,1,Moderate,1,Moderate
+2023-12,Samarinda,75.03703703703704,1,Moderate,1,Moderate
+2024-01,Balikpapan Sepinggan,58.1875,1,Moderate,1,Moderate
+2024-01,Balikpapan sepinggan,130.1875,2,Unhealthy for Sensitive Groups,2,Unhealthy for Sensitive Groups
+2024-01,Banjar Baru Landasan Ulin,128.875,2,Unhealthy for Sensitive Groups,2,Unhealthy for Sensitive Groups
+2024-01,Banjarmasin Kayu Tangi,131.59375,2,Unhealthy for Sensitive Groups,2,Unhealthy for Sensitive Groups
+2024-01,Kabupaten Barito Selatan Sanggu,169.4375,3,Unhealthy,3,Unhealthy
+2024-01,Kabupaten Kotawaringin Timur,153.90625,3,Unhealthy,3,Unhealthy
+2024-01,Kabupaten Sanggau Kapuas,150.6451612903226,3,Unhealthy,3,Unhealthy
+2024-01,Pontianak Tenggara Sungai Bangkong,145.8125,2,Unhealthy for Sensitive Groups,3,Unhealthy
+2024-01,Samarinda,121.90322580645162,2,Unhealthy for Sensitive Groups,2,Unhealthy for Sensitive Groups
+2024-02,Balikpapan Sepinggan,59.86666666666667,1,Moderate,1,Moderate
+2024-02,Balikpapan sepinggan,117.33333333333333,2,Unhealthy for Sensitive Groups,2,Unhealthy for Sensitive Groups
+2024-02,Banjar Baru Landasan Ulin,100.66666666666667,2,Unhealthy for Sensitive Groups,2,Unhealthy for Sensitive Groups
+2024-02,Banjarmasin Kayu Tangi,63.925925925925924,1,Moderate,1,Moderate
+2024-02,Kabupaten Barito Selatan Sanggu,68.41379310344827,1,Moderate,1,Moderate
+2024-02,Kabupaten Kotawaringin Timur,64.24137931034483,1,Moderate,1,Moderate
+2024-02,Kabupaten Sanggau Kapuas,77.86666666666666,1,Moderate,1,Moderate
+2024-02,Pontianak Tenggara Sungai Bangkong,82.56666666666666,1,Moderate,1,Moderate
+2024-02,Samarinda,48.142857142857146,0,Good,0,Good
