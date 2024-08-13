@@ -71,3 +71,7 @@ Contributions to this project are welcome. If you find a bug or have a suggestio
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+- **LinkedIn:** [Annisa Puspa Kirana](https://id.linkedin.com/in/annisapuspakirana/en)
+- **Social Links:** [linktr.ee/puspakirana](http://linktr.ee/puspakirana)
