@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM2.5 Monthly Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .station {
+            margin-bottom: 20px;
+        }
+        .station h2 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #444;
+        }
+        .thumbnail {
+            max-width: 200px; /* Thumbnail size */
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            border: 1px solid #ddd;
+            padding: 4px;
+            background-color: #fff;
+        }
+        a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .image-container {
+            text-align: center;
+        }
+        pre {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>PM2.5 Monthly Analysis</h1>
+    <p><strong>Model Accuracy:</strong> {{ accuracy }}</p>
+    <pre>{{ classification_report }}</pre>
+    <p>Click on the thumbnails below to view the full-size PM2.5 analysis for each station:</p>
+
+    <div class="station">
+        {% for image in images %}
+            <h2>{{ image.split('_')[0] }}</h2>
+            <div class="image-container">
+                <a href="{{ url_for('station_detail', station=image.split('_')[0]) }}">
+                    <img class="thumbnail" src="{{ url_for('send_image', filename=image) }}" alt="{{ image }}">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

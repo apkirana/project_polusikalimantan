@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM2.5 Monthly Analysis - {{ station_name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .image-container {
+            text-align: center;
+        }
+        img {
+            max-width: 80%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        td {
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>PM2.5 Monthly Analysis for {{ station_name }}</h1>
+
+    <div class="image-container">
+        <img src="{{ url_for('send_image', filename=image) }}" alt="{{ image }}">
+    </div>
+
+    <table>
+        <tr>
+            <th>Month</th>
+            <th>Average PM2.5</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row.month }}</td>
+            <td>{{ row.pm25 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p><a href="{{ url_for('index') }}">&#8592; Back to Overview</a></p>
+</body>
+</html>
