@@ -2,6 +2,8 @@
 
 This repository contains the code and resources for analyzing and visualizing air pollution data in Kalimantan. The project includes monthly and yearly analysis of PM2.5 levels across various stations, as well as a web application that provides interactive visualizations and insights.
 
+[Watch the video](https://github.com/apkirana/project_polusikalimantan/blob/main/web%20version/tutorial.mp4)
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
