@@ -32,10 +32,11 @@ Air pollution is a significant issue in many parts of the world, including Kalim
 ## Installation
 To get started with the project, clone the repository and install the required dependencies:
 
-`bash
+```bash
 git clone https://github.com/apkirana/project_polusikalimantan.git
 cd project_polusikalimantan
-pip install -r requirements.txt`
+pip install -r requirements.txt
+```
 
 ## Usage
 
@@ -44,31 +45,34 @@ To run the analysis and start the web application:
 1.	Run Data Analysis: Use the provided Jupyter notebooks to analyze the data (polusi_monthly_kalimantan.ipynb, polusi_yearly_kalimantan.ipynb, and visualisasi_tahunan_kalimantan.ipynb).
 2.	Start the Web Application: Run the Flask app to view the visualizations in your browser.
 
-`python app.py`
+```bash
+cd "web version"
+python app.py
+```
 
 ## Data
 
 The data used in this project is derived from air quality monitoring stations in Kalimantan. The primary focus is on PM2.5 data, which is a key indicator of air quality.
 
-	•	PM2.5: Particulate matter with a diameter of less than 2.5 micrometers.
-	•	Stations: Multiple monitoring stations across Kalimantan are included in the analysis.
+- PM2.5: Particulate matter with a diameter of less than 2.5 micrometers.
+- Stations: Multiple monitoring stations across Kalimantan are included in the analysis.
 
 ## Web Application
 
 The Flask web application allows users to:
 
-	•	View monthly and yearly PM2.5 analysis for each station.
-	•	Explore trends and comparisons across different stations.
-	•	Interact with tables that display air quality data with color-coded levels.
+- View monthly and yearly PM2.5 analysis for each station.
+- Explore trends and comparisons across different stations.
+- Interact with tables that display air quality data with color-coded levels.
 
-Visualizations
+## Visualizations
 
 The project includes a variety of visualizations to help users understand air quality trends:
 
-	•	Monthly Bar Charts: Show the average PM2.5 levels for each month.
-	•	Yearly Bar Charts: Display yearly averages for each station.
-	•	Trend Lines: Illustrate trends in PM2.5 levels over time.
-	•	Comparisons: Compare air quality across multiple stations.
+- Monthly Bar Charts: Show the average PM2.5 levels for each month.
+- Yearly Bar Charts: Display yearly averages for each station.
+- Trend Lines: Illustrate trends in PM2.5 levels over time.
+- Comparisons: Compare air quality across multiple stations.
 
 ## Contributing
 
@@ -78,6 +82,14 @@ Contributions to this project are welcome. If you find a bug or have a suggestio
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Contact
-- **LinkedIn:** [Annisa Puspa Kirana](https://id.linkedin.com/in/annisapuspakirana/en)
-- **Social Links:** [linktr.ee/puspakirana](http://linktr.ee/puspakirana)
+---
+
+## Author
+
+**Annisa Puspa Kirana** — PhD researcher, Faculty of Geo-Information Science and Earth Observation (ITC),
+University of Twente. Research on agentic AI and LLM-driven workflows for Earth observation.
+
+[Google Scholar](https://scholar.google.com/citations?user=BQl6KOsAAAAJ&hl=en) ·
+[ORCID](https://orcid.org/0000-0002-4622-1445) ·
+[LinkedIn](https://www.linkedin.com/in/annisapuspakirana) ·
+[GitHub](https://github.com/apkirana)
